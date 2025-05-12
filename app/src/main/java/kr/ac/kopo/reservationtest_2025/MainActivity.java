@@ -52,9 +52,10 @@ public class MainActivity extends AppCompatActivity {
         timePicker = findViewById(R.id.time_pick);
         textResult = findViewById(R.id.text_result);
 
-
+        rg.setVisibility(View.INVISIBLE);
         calendar.setVisibility(View.INVISIBLE);
         timePicker.setVisibility(View.INVISIBLE);
+
         rbDate.setOnClickListener(rbListener);
         rbTime.setOnClickListener(rbListener);
         chronometer.setOnClickListener(chronoListener);
@@ -75,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
             chronometer.setBase(SystemClock.elapsedRealtime());
             chronometer.start();
             chronometer.setTextColor(Color.RED);
+            rg.setVisibility(View.VISIBLE);
         }
     };
 
@@ -89,6 +91,9 @@ public class MainActivity extends AppCompatActivity {
             selectedHour = timePicker.getHour();
             selectedMinute = timePicker.getMinute();
             textResult.setText(selectedYear + "년 "+ selectedMonth + "월 "+ selectedDay +"일 "+ selectedHour +"시 "+ selectedMinute +"분 예약 완료됨");
+            rg.setVisibility(View.INVISIBLE);
+            calendar.setVisibility(View.INVISIBLE);
+            timePicker.setVisibility(View.INVISIBLE);
             return  true;
         }
     };
